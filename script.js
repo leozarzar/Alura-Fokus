@@ -32,7 +32,7 @@ const sectionImages = sections.map((section) => {
 });
 const sectionsIntervals = [1500,300,900];
 
-let tempContextCount = 1500;
+let tempContextCount = 3;
 
 buttons.forEach((button,i) => {
 
@@ -102,6 +102,7 @@ const count = () => {
 
         resetTemp();
         beepAudio.play();
+        taskListElements[selectedTask].querySelector('svg').dispatchEvent(new Event('click'));
     }
     tempPrint();
 }
@@ -111,6 +112,9 @@ function playTemp(){
     interval = setInterval(count, 1000);
     playpauseImg.setAttribute('src','/imagens/pause.png');
     playpauseText.textContent = 'Pausar';
+    playpauseText.textContent = 'Pausar';
+    
+    playpauseText.textContent = 'Pausar'; 
     
 }
 
@@ -120,6 +124,9 @@ function pauseTemp(){
     interval = null;
     playpauseImg.setAttribute('src','/imagens/play_arrow.png');
     playpauseText.textContent = 'Começar';
+    playpauseText.textContent = 'Começar';
+    
+    playpauseText.textContent = 'Começar';  
     
 }
 
@@ -129,7 +136,6 @@ function resetTemp(){
     tempCount = tempContextCount;
     songAudio.pause();
     songAudio.currentTime = 0;
-
 }
 
 function tempPrint() {
